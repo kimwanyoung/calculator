@@ -40,6 +40,18 @@ public class Calculator {
         return result;
     }
 
+    public static String getAllHistory() {
+        return RESULT_HISTORY.toString();
+    }
+
+    public static long getHistoryById(int index) {
+        return RESULT_HISTORY.get(index);
+    }
+
+    public static void setHistoryById(int index, long value) {
+        RESULT_HISTORY.set(index, value);
+    }
+
     private static void validateArithmeticOperator(String operator) {
         if(!operator.equals(ADD) && !operator.equals(SUBTRACT) && !operator.equals(DIVIDE) && !operator.equals(MULTIPLY)) {
             throw new IllegalArgumentException("[Error] : 사칙연산('+', '-', '/', '*')만 입력 가능합니다.");

@@ -26,6 +26,32 @@ public class App {
             long result = Calculator.calculate(operator, firstNumber, secondNumber);
             System.out.println("결과 : " + result);
 
+            System.out.println("'전체조회', '조회', '수정' 입력해주세요. (그 외 입력은 건너뛰기 입니다.)");
+            String historyCommand = sc.nextLine();
+            if(historyCommand.equals("조회")) {
+                System.out.println("조회할 기록의 인덱스를 입력해주세요.");
+                int index = sc.nextInt();
+
+                sc.nextLine();
+
+                System.out.println("조회 결과 : " + Calculator.getHistoryById(index));
+            }
+
+            if(historyCommand.equals("수정")) {
+                System.out.println("수정할 기록의 인덱스를 입력해주세요.");
+                int index = sc.nextInt();
+                System.out.println("수정할 기록의 값을 입력해주세요.");
+                long value = sc.nextLong();
+
+                sc.nextLine();
+                Calculator.setHistoryById(index, value);
+                System.out.println("수정 결과 : " + Calculator.getHistoryById(index));
+            }
+
+            if(historyCommand.equals("전체조회")) {
+                System.out.println("조회 결과 : " + Calculator.getAllHistory());
+            }
+
             // exit 입력시 반복문 종료
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             if(sc.nextLine().equals("exit")) {

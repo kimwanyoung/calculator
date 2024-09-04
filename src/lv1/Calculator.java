@@ -4,14 +4,19 @@ import java.util.Scanner;
 
 public class Calculator {
 
+    static final String ADD = "+";
+    static final String SUBTRACT = "-";
+    static final String DIVIDE = "/";
+    static final String MULTIPLY = "*";
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         // 두 정수 입력받기
         System.out.print("첫 번째 숫자를 입력하세요: ");
-        int firstNumber = sc.nextInt();
+        long firstNumber = sc.nextInt();
         System.out.print("두 번째 숫자를 입력하세요: ");
-        int secondNumber = sc.nextInt();
+        long secondNumber = sc.nextInt();
 
         // 남아있는 개행문자 소비
         sc.nextLine();
@@ -22,10 +27,34 @@ public class Calculator {
 
         // 양의 정수 검증
         validatePositiveInteger(firstNumber, secondNumber);
+        // 연산자 검증
+        validateArithmeticOperator(operator);
+
+        long result = 0;
+        switch (operator) {
+            case ADD -> result = firstNumber + secondNumber;
+            case SUBTRACT -> result = firstNumber - secondNumber;
+            case DIVIDE -> {
+                try {
+                    result = firstNumber / secondNumber;
+                } catch (ArithmeticException exception) {
+                    throw new ArithmeticException("[Error] : 나누기 연산 시 분모는 0이 될 수 없습니다.");
+                }
+
+            }
+            case MULTIPLY -> result = firstNumber * secondNumber;
+        }
+
+        System.out.println("결과 : " + result);
+    }
+    static void validateArithmeticOperator(String operator) {
+        if(!operator.equals(ADD) && !operator.equals(SUBTRACT) && !operator.equals(DIVIDE) && !operator.equals(MULTIPLY)) {
+            throw new IllegalArgumentException("[Error] : 사칙연산('+', '-', '/', '*')만 입력 가능합니다.")
+        }
     }
 
-    static void validatePositiveInteger(int firstNumber, int secondNumber) {
-        if(firstNumber < 0 || secondNumber < 0) {
+    static void validatePositiveInteger(long firstNumber, long secondNumber) {
+        if (firstNumber < 0 || secondNumber < 0) {
             throw new IllegalArgumentException("[Error] : 양의 정수만 입력 가능합니다.");
         }
     }

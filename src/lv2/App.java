@@ -26,6 +26,7 @@ public class App {
             long result = Calculator.calculate(operator, firstNumber, secondNumber);
             System.out.println("결과 : " + result);
 
+            // 전체조회, 조회, 수정 입력받기
             System.out.println("'전체조회', '조회', '수정' 입력해주세요. (그 외 입력은 건너뛰기 입니다.)");
             String historyCommand = sc.nextLine();
             if(historyCommand.equals("조회")) {

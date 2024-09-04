@@ -15,6 +15,11 @@ public class Calculator {
     }
 
     public static long calculate(String operator, long firstNumber, long secondNumber) {
+        // 양의 정수 검증
+        validatePositiveInteger(firstNumber, secondNumber);
+        // 연산자 검증
+        validateArithmeticOperator(operator);
+
         long result = 0;
         switch (operator) {
             case ADD -> result = firstNumber + secondNumber;
@@ -33,5 +38,17 @@ public class Calculator {
 
         RESULT_HISTORY.add(result);
         return result;
+    }
+
+    private static void validateArithmeticOperator(String operator) {
+        if(!operator.equals(ADD) && !operator.equals(SUBTRACT) && !operator.equals(DIVIDE) && !operator.equals(MULTIPLY)) {
+            throw new IllegalArgumentException("[Error] : 사칙연산('+', '-', '/', '*')만 입력 가능합니다.");
+        }
+    }
+
+    private static void validatePositiveInteger(long firstNumber, long secondNumber) {
+        if (firstNumber < 0 || secondNumber < 0) {
+            throw new IllegalArgumentException("[Error] : 양의 정수만 입력 가능합니다.");
+        }
     }
 }

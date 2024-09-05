@@ -4,26 +4,27 @@ import challenge.operator.AbstractOperator;
 
 public class Calculator {
 
-    private Number firstNumber;
-    private Number secondNumber;
-    private AbstractOperator<Number> operator;
+    private boolean isRunning = true;
+    private final Display display;
 
-    public Calculator() {
+    public Calculator(Display display) {
+        this.display = display;
     }
 
-    public double calculate() {
-        return operator.operate(firstNumber, secondNumber).doubleValue();
+    public void run() {
+        while(isRunning) {
+            Number first = display.readNumber();
+            Number second = display.readNumber();
+
+            String operator = display.readOperator();
+            display.printResult(calculate(operator, first, second));
+
+            if(display.readContinueOrExit()) isRunning = false;
+        }
     }
 
-    public void setFirstNumber(Number firstNumber) {
-        this.firstNumber = firstNumber;
-    }
-
-    public void setSecondNumber(Number secondNumber) {
-        this.secondNumber = secondNumber;
-    }
-
-    public void setOperator(String operator) {
-        this.operator = OperationType.getOperatorBySymbol(operator);
+    private double calculate(String operator, Number first, Number second) {
+        AbstractOperator<Number> op = OperationType.getOperatorBySymbol(operator);
+        return op.operate(first, second).doubleValue();
     }
 }

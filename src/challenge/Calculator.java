@@ -21,9 +21,10 @@ public class Calculator {
             Number second = display.readNumber();
             String operator = display.readOperator();
 
-            display.printResult(calculate(operator, first, second));
+            double result = calculate(operator, first, second);
+            display.printResult(result);
 
-            saveLog(operator, first, second);
+            saveLog(operator, first, result, second);
 
             display.printLogs(resultLogs);
 
@@ -36,7 +37,7 @@ public class Calculator {
         return op.operate(first, second).doubleValue();
     }
 
-    private void saveLog(String operator, Number first, Number second) {
-        resultLogs.add(new ResultLog(first, second, operator));
+    private void saveLog(String operator, Number first, Number result, Number second) {
+        resultLogs.add(new ResultLog(first, second, result, operator));
     }
 }

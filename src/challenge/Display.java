@@ -1,5 +1,6 @@
 package challenge;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Display {
@@ -28,5 +29,10 @@ public class Display {
 
     public void printResult(double result) {
         System.out.println("결과 : " + result);
+    }
+
+    public void printLogs(List<ResultLog> logs) {
+        System.out.println("결과 리스트 조회를 원하시면 '조회'를 입력해주세요. (그 외 입력은 건너뛰기 입니다.)");
+        if(scanner.nextLine().equals("조회")) System.out.println(logs);
     }
 }

@@ -19,10 +19,13 @@ public class Calculator {
         while(isRunning) {
             Number first = display.readNumber();
             Number second = display.readNumber();
-
             String operator = display.readOperator();
+
             display.printResult(calculate(operator, first, second));
+
             saveLog(operator, first, second);
+
+            display.printLogs(resultLogs);
 
             if(display.readContinueOrExit()) isRunning = false;
         }

@@ -33,6 +33,17 @@ public class Display {
 
     public void printLogs(List<ResultLog> logs) {
         System.out.println("결과 리스트 조회를 원하시면 '조회'를 입력해주세요. (그 외 입력은 건너뛰기 입니다.)");
-        if(scanner.nextLine().equals("조회")) System.out.println(logs);
+        if(scanner.nextLine().equals("조회")) {
+            logs.forEach(System.out::println);
+        }
+    }
+
+    public void printResultMoreThan(List<ResultLog> logs, Number number) {
+        System.out.println("더 큰 결과 조회를 원하시면 '조회'를 입력해주세요. (그 외 입력은 건너뛰기 입니다.)");
+        if(scanner.nextLine().equals("조회")){
+            logs.stream()
+                    .filter((ResultLog log) -> log.moreThan(number))
+                    .forEach(System.out::println);
+        }
     }
 }

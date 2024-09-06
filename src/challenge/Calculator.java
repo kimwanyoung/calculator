@@ -27,6 +27,7 @@ public class Calculator {
             saveLog(operator, first, result, second);
 
             display.printLogs(resultLogs);
+            display.printResultMoreThan(resultLogs, result);
 
             if(display.readContinueOrExit()) isRunning = false;
         }

@@ -13,6 +13,10 @@ public class ResultLog {
         this.operationType = operationType;
     }
 
+    public boolean moreThan(Number number) {
+        return this.result.doubleValue() > number.doubleValue();
+    }
+
     @Override
     public String toString() {
         return "ResultLog{" +

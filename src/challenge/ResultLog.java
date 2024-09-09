@@ -1,10 +1,10 @@
 package challenge;
 
 public class ResultLog {
-    private Operand first;
-    private Operand second;
-    private double result;
-    private String operationType;
+    private final Operand first;
+    private final Operand second;
+    private final double result;
+    private final String operationType;
 
     public ResultLog(Operand first, Operand second, double result, String operationType) {
         this.first = first;

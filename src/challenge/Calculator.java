@@ -7,16 +7,16 @@ import java.util.List;
 
 public class Calculator {
 
-    private boolean isRunning = true;
     private final Display display;
     private final List<ResultLog> resultLogs = new ArrayList<>();
+    private boolean isRunning = true;
 
     public Calculator(Display display) {
         this.display = display;
     }
 
     public void run() {
-        while(isRunning) {
+        while (isRunning) {
             Operand first = display.readNumber();
             Operand second = display.readNumber();
             String operator = display.readOperator();
@@ -29,7 +29,7 @@ public class Calculator {
             display.printLogs(resultLogs);
             display.printResultMoreThan(resultLogs, result);
 
-            if(display.readContinueOrExit()) isRunning = false;
+            if (display.readContinueOrExit()) isRunning = false;
         }
     }
 

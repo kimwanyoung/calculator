@@ -17,8 +17,8 @@ public enum OperationType {
     }
 
     public static AbstractOperator<Operand> getOperatorBySymbol(String operator) {
-        for(OperationType op : OperationType.values()) {
-            if(op.type.equals(operator)) return op.operator;
+        for (OperationType op : OperationType.values()) {
+            if (op.type.equals(operator)) return op.operator;
         }
 
         throw new IllegalArgumentException("제공하지 않는 연산입니다.");

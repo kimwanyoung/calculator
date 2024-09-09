@@ -19,11 +19,6 @@ public class ResultLog {
 
     @Override
     public String toString() {
-        return "ResultLog{" +
-                "first=" + first +
-                ", second=" + second +
-                ", result=" + result +
-                ", operationType='" + operationType + '\'' +
-                '}';
+        return first + " " + operationType + " " + second + " = " + result;
     }
 }

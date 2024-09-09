@@ -24,7 +24,7 @@ public class Calculator {
             double result = calculate(operator, first, second);
             display.printResult(result);
 
-            saveLog(operator, first, result, second);
+            saveLog(first, second, result, operator);
 
             display.printLogs(resultLogs);
             display.printResultMoreThan(resultLogs, result);
@@ -38,7 +38,7 @@ public class Calculator {
         return op.operate(first, second).doubleValue();
     }
 
-    private void saveLog(String operator, Number first, Number result, Number second) {
+    private void saveLog(Number first, Number second, Number result, String operator) {
         resultLogs.add(new ResultLog(first, second, result, operator));
     }
 }

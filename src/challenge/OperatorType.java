@@ -2,6 +2,8 @@ package challenge;
 
 import challenge.operator.*;
 
+import java.math.BigDecimal;
+
 public enum OperatorType {
     ADD("+", new Add()),
     SUB("-", new Subtract()),
@@ -16,11 +18,20 @@ public enum OperatorType {
         this.operator = operator;
     }
 
-    public static AbstractOperator getOperatorBySymbol(String operator) {
+    public BigDecimal operate(Operand first, Operand second) {
+        return this.operator.operate(first, second);
+    }
+
+    public static OperatorType getOperatorType(String operator) {
         for (OperatorType op : OperatorType.values()) {
-            if (op.type.equals(operator)) return op.operator;
+            if (op.type.equals(operator)) return op;
         }
 
         throw new IllegalArgumentException("제공하지 않는 연산입니다.");
+    }
+
+    @Override
+    public String toString() {
+        return this.type;
     }
 }

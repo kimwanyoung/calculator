@@ -1,7 +1,5 @@
 package challenge;
 
-import challenge.operator.AbstractOperator;
-
 import java.math.BigDecimal;
 
 public class Calculator {
@@ -19,7 +17,7 @@ public class Calculator {
         while (isRunning) {
             Operand first = display.readNumber();
             Operand second = display.readNumber();
-            String operator = display.readOperator();
+            OperatorType operator = OperatorType.getOperatorType(display.readOperator());
 
             BigDecimal result = calculate(operator, first, second);
             display.printResult(result);
@@ -33,8 +31,7 @@ public class Calculator {
         }
     }
 
-    private BigDecimal calculate(String inputOperator, Operand first, Operand second) {
-        AbstractOperator operator = OperatorType.getOperatorBySymbol(inputOperator);
-        return operator.operate(first, second);
+    private BigDecimal calculate(OperatorType operatorType, Operand first, Operand second) {
+        return operatorType.operate(first, second);
     }
 }

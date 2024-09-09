@@ -7,6 +7,6 @@ import java.math.BigDecimal;
 public class Subtract extends AbstractOperator {
     @Override
     public BigDecimal operate(Operand firstNumber, Operand secondNumber) {
-        return firstNumber.getValue().multiply(secondNumber.getValue());
+        return firstNumber.getValue().subtract(secondNumber.getValue());
     }
 }

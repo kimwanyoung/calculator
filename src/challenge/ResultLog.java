@@ -3,22 +3,22 @@ package challenge;
 public class ResultLog {
     private Operand first;
     private Operand second;
-    private Operand result;
+    private double result;
     private String operationType;
 
     public ResultLog(Operand first, Operand second, double result, String operationType) {
         this.first = first;
         this.second = second;
-        this.result = new Operand(result);
+        this.result = result;
         this.operationType = operationType;
     }
 
     public boolean moreThan(double number) {
-        return this.result.getValue() > number;
+        return this.result > number;
     }
 
     @Override
     public String toString() {
-        return first.getValue() + " " + operationType + " " + second.getValue() + " = " + result.getValue();
+        return first.getValue() + " " + operationType + " " + second.getValue() + " = " + result;
     }
 }

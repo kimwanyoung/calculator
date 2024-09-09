@@ -2,9 +2,11 @@ package challenge.operator;
 
 import challenge.Operand;
 
-public class Multiply extends AbstractOperator<Operand> {
+import java.math.BigDecimal;
+
+public class Multiply extends AbstractOperator {
     @Override
-    public double operate(Operand firstNumber, Operand secondNumber) {
-        return firstNumber.getValue() * secondNumber.getValue();
+    public BigDecimal operate(Operand firstNumber, Operand secondNumber) {
+        return firstNumber.getValue().multiply(secondNumber.getValue());
     }
 }

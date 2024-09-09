@@ -1,5 +1,9 @@
 package challenge.operator;
 
-public abstract class AbstractOperator<Operand> {
-    public abstract double operate(Operand firstNumber, Operand secondNumber);
+import challenge.Operand;
+
+import java.math.BigDecimal;
+
+public abstract class AbstractOperator {
+    public abstract BigDecimal operate(Operand firstNumber, Operand secondNumber);
 }

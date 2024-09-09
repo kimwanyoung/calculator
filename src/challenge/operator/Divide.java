@@ -2,10 +2,13 @@ package challenge.operator;
 
 import challenge.Operand;
 
-public class Divide extends AbstractOperator<Operand> {
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+public class Divide extends AbstractOperator {
     @Override
-    public double operate(Operand firstNumber, Operand secondNumber) {
-        if (secondNumber.getValue() == 0) throw new ArithmeticException("0으로 나눌 수 없습니다.");
-        return firstNumber.getValue() / secondNumber.getValue();
+    public BigDecimal operate(Operand firstNumber, Operand secondNumber) {
+        if (secondNumber.getValue().equals(BigDecimal.ZERO)) throw new ArithmeticException("0으로 나눌 수 없습니다.");
+        return firstNumber.getValue().divide(secondNumber.getValue(), RoundingMode.HALF_UP);
     }
 }

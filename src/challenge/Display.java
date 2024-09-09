@@ -1,5 +1,6 @@
 package challenge;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,7 +28,7 @@ public class Display {
         else throw new IllegalStateException("예, 아니오만 입력 가능합니다.");
     }
 
-    public void printResult(double result) {
+    public void printResult(BigDecimal result) {
         System.out.println("결과 : " + result);
     }
 
@@ -43,7 +44,7 @@ public class Display {
         }
     }
 
-    public void printResultMoreThan(List<ResultLog> logs, double number) {
+    public void printResultMoreThan(List<ResultLog> logs, BigDecimal number) {
         System.out.println("현재 값보다 큰 값 조회 - 조회, 건너뛰기 입력.");
         String command = scanner.nextLine();
         if (command.equals("조회")) {

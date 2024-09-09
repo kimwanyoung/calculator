@@ -8,7 +8,11 @@ public class Display {
 
     private static final String EXIT_COMMAND = "아니오";
     private static final String CONTINUE_COMMAND = "예";
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
+
+    public Display(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
     public Operand readNumber() {
         System.out.print("숫자를 입력하세요.");

@@ -9,6 +9,10 @@ public class Operand {
         this.value = parseValue(inputValue);
     }
 
+    public Operand(Double inputValue) {
+        this.value = inputValue;
+    }
+
     public double getValue() {
         return this.value.doubleValue();
     }

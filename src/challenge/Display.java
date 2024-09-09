@@ -9,16 +9,12 @@ public class Display {
     private static final String CONTINUE_COMMAND = "예";
     private final Scanner scanner = new Scanner(System.in);
 
-    public Number readNumber() {
-        System.out.println("숫자를 입력하세요.");
-        if (scanner.hasNextInt()) return scanner.nextInt();
-        else if (scanner.hasNextDouble()) return scanner.nextDouble();
-        else throw new IllegalStateException("숫자만 입력 가능합니다.");
+    public Operand readNumber() {
+        System.out.print("숫자를 입력하세요.");
+        return new Operand(scanner.nextLine());
     }
 
     public String readOperator() {
-        scanner.nextLine();
-
         System.out.print("사칙연산 기호를 입력하세요: ");
         return scanner.nextLine();
     }
@@ -47,7 +43,7 @@ public class Display {
         }
     }
 
-    public void printResultMoreThan(List<ResultLog> logs, Number number) {
+    public void printResultMoreThan(List<ResultLog> logs, double number) {
         System.out.println("현재 값보다 큰 값 조회 - 조회, 건너뛰기 입력.");
         String command = scanner.nextLine();
         if (command.equals("조회")) {

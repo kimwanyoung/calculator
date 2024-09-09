@@ -1,8 +1,10 @@
 package challenge.operator;
 
-public class Add extends AbstractOperator<Number> {
+import challenge.Operand;
+
+public class Add extends AbstractOperator<Operand> {
     @Override
-    public Number operate(Number firstNumber, Number secondNumber) {
-        return firstNumber.doubleValue() + secondNumber.doubleValue();
+    public double operate(Operand firstNumber, Operand secondNumber) {
+        return firstNumber.getValue() + secondNumber.getValue();
     }
 }

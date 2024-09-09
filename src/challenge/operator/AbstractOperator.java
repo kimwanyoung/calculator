@@ -1,5 +1,5 @@
 package challenge.operator;
 
-public abstract class AbstractOperator<T extends Number> {
-    public abstract T operate(T firstNumber, T secondNumber);
+public abstract class AbstractOperator<Operand> {
+    public abstract double operate(Operand firstNumber, Operand secondNumber);
 }

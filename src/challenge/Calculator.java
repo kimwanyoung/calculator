@@ -17,8 +17,8 @@ public class Calculator {
 
     public void run() {
         while(isRunning) {
-            Number first = display.readNumber();
-            Number second = display.readNumber();
+            Operand first = display.readNumber();
+            Operand second = display.readNumber();
             String operator = display.readOperator();
 
             double result = calculate(operator, first, second);
@@ -33,12 +33,12 @@ public class Calculator {
         }
     }
 
-    private double calculate(String operator, Number first, Number second) {
-        AbstractOperator<Number> op = OperationType.getOperatorBySymbol(operator);
-        return op.operate(first, second).doubleValue();
+    private double calculate(String inputOperator, Operand first, Operand second) {
+        AbstractOperator<Operand> operator = OperationType.getOperatorBySymbol(inputOperator);
+        return operator.operate(first, second);
     }
 
-    private void saveLog(Number first, Number second, Number result, String operator) {
+    private void saveLog(Operand first, Operand second, double result, String operator) {
         resultLogs.add(new ResultLog(first, second, result, operator));
     }
 }

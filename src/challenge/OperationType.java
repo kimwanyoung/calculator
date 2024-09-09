@@ -9,14 +9,14 @@ public enum OperationType {
     DIV("/", new Divide());
 
     private final String type;
-    private final AbstractOperator<Number> operator;
+    private final AbstractOperator<Operand> operator;
 
-    OperationType(String type, AbstractOperator<Number> operator) {
+    OperationType(String type, AbstractOperator<Operand> operator) {
         this.type = type;
         this.operator = operator;
     }
 
-    public static AbstractOperator<Number> getOperatorBySymbol(String operator) {
+    public static AbstractOperator<Operand> getOperatorBySymbol(String operator) {
         for(OperationType op : OperationType.values()) {
             if(op.type.equals(operator)) return op.operator;
         }

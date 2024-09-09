@@ -15,9 +15,9 @@ public class Display {
         return new Operand(scanner.nextLine());
     }
 
-    public String readOperator() {
+    public OperatorType readOperator() {
         System.out.print("사칙연산 기호를 입력하세요: ");
-        return scanner.nextLine();
+        return OperatorType.getOperatorType(scanner.nextLine());
     }
 
     public boolean readContinueOrExit() {

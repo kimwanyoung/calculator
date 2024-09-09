@@ -17,7 +17,7 @@ public class Calculator {
         while (isRunning) {
             Operand first = display.readNumber();
             Operand second = display.readNumber();
-            OperatorType operator = OperatorType.getOperatorType(display.readOperator());
+            OperatorType operator = display.readOperator();
 
             BigDecimal result = calculate(operator, first, second);
             display.printResult(result);

@@ -3,6 +3,7 @@ package challenge;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Predicate;
 
 public class Display {
 
@@ -34,22 +35,19 @@ public class Display {
 
     public void printLogs(List<ResultLog> logs) {
         System.out.println("결과 리스트 조회 - 조회, 건너뛰기 입력.");
-        String command = scanner.nextLine();
-        if (command.equals("조회")) {
-            logs.forEach(System.out::println);
-        } else if (command.equals("건너뛰기")) {
-            System.out.println("조회 건너뜀.");
-        } else {
-            throw new IllegalArgumentException("조회, 건너뛰기만 입력 가능합니다.");
-        }
+        printByFilter(logs, log -> true);
     }
 
     public void printResultMoreThan(List<ResultLog> logs, BigDecimal number) {
         System.out.println("현재 값보다 큰 값 조회 - 조회, 건너뛰기 입력.");
+        printByFilter(logs, log -> log.moreThan(number));
+    }
+
+    private void printByFilter(List<ResultLog> logs, Predicate<ResultLog> filter) {
         String command = scanner.nextLine();
         if (command.equals("조회")) {
             logs.stream()
-                    .filter((ResultLog log) -> log.moreThan(number))
+                    .filter(filter)
                     .forEach(System.out::println);
         } else if (command.equals("건너뛰기")) {
             System.out.println("조회 건너뜀.");

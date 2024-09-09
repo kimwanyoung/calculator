@@ -34,7 +34,7 @@ public class Calculator {
     }
 
     private double calculate(String inputOperator, Operand first, Operand second) {
-        AbstractOperator<Operand> operator = OperationType.getOperatorBySymbol(inputOperator);
+        AbstractOperator<Operand> operator = OperatorType.getOperatorBySymbol(inputOperator);
         return operator.operate(first, second);
     }
 

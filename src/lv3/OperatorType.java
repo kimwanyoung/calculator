@@ -1,6 +1,6 @@
-package challenge;
+package lv3;
 
-import challenge.operator.*;
+import lv3.operator.*;
 
 import java.math.BigDecimal;
 

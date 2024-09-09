@@ -1,6 +1,6 @@
-package challenge.operator;
+package lv3.operator;
 
-import challenge.Operand;
+import lv3.Operand;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
